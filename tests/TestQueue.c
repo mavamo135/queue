@@ -2,13 +2,14 @@
 #include "Queue.h"
 
 static int ret;
+static int queue_array[10] = {0};
 static queue_t queue;
 
 void
 setUp(void)
 {
     ret = 0;
-    queue_init(&queue);
+    queue_init(&queue, queue_array, 10);
 }
 
 void

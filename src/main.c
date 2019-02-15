@@ -40,11 +40,12 @@ void *readThread(void* arg)
 int
 main(int argc, char** argv)
 {
+    int queue_array[10] = {0};
     queue_t queue;
     pthread_t writer;
     pthread_t reader;
 
-    queue_init(&queue);
+    queue_init(&queue, queue_array, 10);
 
     if (pthread_create(&writer, NULL, writeThread, (void*) &queue))
       {

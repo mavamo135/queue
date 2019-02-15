@@ -32,10 +32,7 @@
 /******************************************************************************
 * Configuration Constants
 ******************************************************************************/
-/*!
- * Maximum number of elements in the queue array
- */
-#define MAXSIZE     10
+
 
 /******************************************************************************
 * Macros
@@ -54,7 +51,8 @@ struct queue_t
     int index;              /**< Index used for input elements */
     int outdex;             /**< Index used for output elements */
     int count;              /**< Number of elements in the queue */
-    int elements[MAXSIZE];  /**< Queue array */
+    int* elements;          /**< Queue array pointer to user array */
+    int size;               /**< Size of queue array given by the user */
     sem_t lock;             /**< Semaphore used to lock the queue */
 };
 
@@ -66,7 +64,7 @@ struct queue_t
 /******************************************************************************
 * Function Prototypes
 ******************************************************************************/
-void queue_init(queue_t* queue);
+void queue_init(queue_t* queue,  int* elementsArray, int size);
 int queue_enqueue(queue_t* queue, int value);
 int queue_dequeue(queue_t* queue, int* value);
 void queue_print(queue_t* queue);

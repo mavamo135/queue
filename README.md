@@ -19,21 +19,22 @@ int main(int argc, char** argv)
 {
     int ret;
     int error;
+    int queue_array[10] = {0};
     queue_t queue;
 
-    queue_init(&queue);
+    queue_init(&queue, queue_array, 10);
 
-    error = queue_enqueue(queue, 1);
-    error = queue_enqueue(queue, 2);
-    error = queue_enqueue(queue, 3);
+    error = queue_enqueue(&queue, 1);
+    error = queue_enqueue(&queue, 2);
+    error = queue_enqueue(&queue, 3);
 
-    queue_print(queue);
+    queue_print(&queue);
 
-    error = queue_dequeue(queue, &ret);
+    error = queue_dequeue(&queue, &ret);
     printf("Value 1: %d", ret);
-    error = queue_dequeue(queue, &ret);
+    error = queue_dequeue(&queue, &ret);
     printf("Value 2: %d", ret);
-    error = queue_dequeue(queue, &ret);
+    error = queue_dequeue(&queue, &ret);
     printf("Value 3: %d", ret);
 }
 ```
@@ -43,8 +44,9 @@ int main(int argc, char** argv)
 To initialize a queue structure use the function `queue_init()`.
 
 ```c
+int queue_array[10] = {0};
 queue_t queue;
-queue_init(&queue);
+queue_init(&queue, queue_array, 10);
 ```
 
 ## Enqueue elements

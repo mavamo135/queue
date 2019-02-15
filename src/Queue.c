@@ -30,21 +30,22 @@
  *  @code
  *      int ret;
  *      int error;
+ *      int queue_array[10] = {0};
  *      queue_t queue;
  * 
- *      queue_init(&queue);
+ *      queue_init(&queue, queue_array, 10);
  * 
- *      error = queue_enqueue(queue, 1);
- *      error = queue_enqueue(queue, 2);
- *      error = queue_enqueue(queue, 3);
+ *      error = queue_enqueue(&queue, 1);
+ *      error = queue_enqueue(&queue, 2);
+ *      error = queue_enqueue(&queue, 3);
  * 
  *      queue_print(queue);
  * 
- *      error = queue_dequeue(queue, &ret);
+ *      error = queue_dequeue(&queue, &ret);
  *      printf("Value 1: %d", ret);
- *      error = queue_dequeue(queue, &ret);
+ *      error = queue_dequeue(&queue, &ret);
  *      printf("Value 2: %d", ret);
- *      error = queue_dequeue(queue, &ret);
+ *      error = queue_dequeue(&queue, &ret);
  *      printf("Value 3: %d", ret);
  *  @endcode
  */
@@ -133,7 +134,7 @@ is_empty(queue_t* queue)
 static int
 is_full(queue_t* queue)
 {
-    if(queue->count == MAXSIZE)
+    if(queue->count == queue->size)
             return 1;  
 
     return 0;
@@ -152,19 +153,22 @@ is_full(queue_t* queue)
  * 
  * \b Example:
  * @code
+ *      int queue_array[10] = {0};
  *      queue_t queue;
- *      queue_init(&queue);
+ *      queue_init(&queue, queue_array, 10);
  * @endcode
  *
  */
 /*****************************************************************************/
 void
-queue_init(queue_t* queue)
+queue_init(queue_t* queue, int* elementsArray, int size)
 {
     // Initialize the structure
     queue->index = 0;
     queue->outdex = 0;
     queue->count = 0;
+    queue->elements = elementsArray;
+    queue->size = size;
     
     // Initialize R/W semaphore
     sem_init(&(queue->lock), 0, 1);
@@ -184,8 +188,9 @@ queue_init(queue_t* queue)
  * 
  * \b Example:
  * @code
+ *      int queue_array[10] = {0};
  *      queue_t queue;
- *      queue_init(&queue);
+ *      queue_init(&queue, queue_array, 10);
  * 
  *      int error = queue_enqueue(&queue, 1);
  * @endcode
@@ -202,7 +207,7 @@ queue_enqueue(queue_t* queue, int value)
     if (!is_full(queue))
       {
           queue->elements[queue->index] = value;
-          queue->index = (queue->index+1) % MAXSIZE;
+          queue->index = (queue->index+1) % queue->size;
           queue->count++;
           ret = 0;
       }
@@ -227,8 +232,9 @@ queue_enqueue(queue_t* queue, int value)
  * \b Example:
  * @code
  *      int retval;
+ *      int queue_array[10] = {0};
  *      queue_t queue;
- *      queue_init(&queue);
+ *      queue_init(&queue, queue_array, 10);
  * 
  *      int error = queue_enqueue(&queue, 1);
  *      int error = queue_dequeue(&queue, &retval);
@@ -246,7 +252,7 @@ queue_dequeue(queue_t* queue, int* value)
     if (!is_empty(queue))
       {
           *value = queue->elements[queue->outdex];
-          queue->outdex = (queue->outdex+1) % MAXSIZE;
+          queue->outdex = (queue->outdex+1) % queue->size;
           queue->count--;
           ret = 0;
       }
@@ -280,7 +286,7 @@ queue_print(queue_t* queue)
     for (ix = 0; ix < queue->count; ix++)
       {
           printf("%d :: ", queue->elements[jx]);
-          jx = (jx+1) % MAXSIZE;
+          jx = (jx+1) % queue->size;
       }
 
     printf("\n");
