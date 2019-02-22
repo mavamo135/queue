@@ -22,7 +22,6 @@
 ******************************************************************************/
 #include <stdio.h>
 #include <pthread.h>
-#include <semaphore.h>
 
 /******************************************************************************
 * Preprocessor Constants
@@ -53,7 +52,7 @@ struct queue_t
     int count;              /**< Number of elements in the queue */
     int* elements;          /**< Queue array pointer to user array */
     int size;               /**< Size of queue array given by the user */
-    sem_t lock;             /**< Semaphore used to lock the queue */
+    pthread_mutex_t lock;   /**< Mutex used to lock the queue */
 };
 
 /******************************************************************************

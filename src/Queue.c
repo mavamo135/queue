@@ -171,7 +171,7 @@ queue_init(queue_t* queue, int* elementsArray, int size)
     queue->size = size;
     
     // Initialize R/W semaphore
-    sem_init(&(queue->lock), 0, 1);
+    pthread_mutex_init(&(queue->lock), NULL);
 }
 
 /*****************************************************************************/
@@ -202,7 +202,7 @@ queue_enqueue(queue_t* queue, int value)
 {
     int ret = -1;
     
-    sem_wait(&(queue->lock));
+    pthread_mutex_lock(&(queue->lock));
 
     if (!is_full(queue))
       {
@@ -212,7 +212,7 @@ queue_enqueue(queue_t* queue, int value)
           ret = 0;
       }
 
-    sem_post(&(queue->lock));
+    pthread_mutex_unlock(&(queue->lock));
 
     return ret;
 }
@@ -247,7 +247,7 @@ queue_dequeue(queue_t* queue, int* value)
 {
     int ret = -1;
 
-    sem_wait(&(queue->lock));
+    pthread_mutex_lock(&(queue->lock));
 
     if (!is_empty(queue))
       {
@@ -257,7 +257,7 @@ queue_dequeue(queue_t* queue, int* value)
           ret = 0;
       }
 
-    sem_post(&(queue->lock));
+    pthread_mutex_unlock(&(queue->lock));
 
     return ret;
 }
@@ -281,7 +281,7 @@ queue_print(queue_t* queue)
     int ix = 0;
     int jx = queue->outdex;
 
-    sem_wait(&(queue->lock));
+    pthread_mutex_lock(&(queue->lock));
 
     for (ix = 0; ix < queue->count; ix++)
       {
@@ -291,7 +291,7 @@ queue_print(queue_t* queue)
 
     printf("\n");
 
-    sem_post(&(queue->lock));
+    pthread_mutex_unlock(&(queue->lock));
 }
 
 /*****************************************************************************/
@@ -312,11 +312,11 @@ queue_count(queue_t* queue)
 {
     int count = -1;
 
-    sem_wait(&(queue->lock));
+    pthread_mutex_lock(&(queue->lock));
 
     count = queue->count;
 
-    sem_post(&(queue->lock));
+    pthread_mutex_unlock(&(queue->lock));
 
     return count;
 }
