@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lock',['lock',['../structqueue__t.html#a79b4709c18c94ebd80839a0144dbbf47',1,'queue_t']]]
+  ['numelements',['numElements',['../structqueue__t.html#a0495a085d1e12035199884ba397fee22',1,'queue_t']]]
 ];

@@ -71,27 +71,27 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga2b099c443de1a01dfdcd898c45bb1f95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__queue.html#ga2b099c443de1a01dfdcd898c45bb1f95">queue_init</a> (<a class="el" href="structqueue__t.html">queue_t</a> *queue)</td></tr>
-<tr class="separator:ga2b099c443de1a01dfdcd898c45bb1f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga042e986b1c5354ab917d82cdf7bfcad3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__queue.html#ga042e986b1c5354ab917d82cdf7bfcad3">queue_enqueue</a> (<a class="el" href="structqueue__t.html">queue_t</a> *queue, int value)</td></tr>
-<tr class="separator:ga042e986b1c5354ab917d82cdf7bfcad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad23bd224e18ed06395db83a955388964"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__queue.html#gad23bd224e18ed06395db83a955388964">queue_dequeue</a> (<a class="el" href="structqueue__t.html">queue_t</a> *queue, int *value)</td></tr>
-<tr class="separator:gad23bd224e18ed06395db83a955388964"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga500507f9c7fb8e6df165cf5b285c6a38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__queue.html#ga500507f9c7fb8e6df165cf5b285c6a38">queue_print</a> (<a class="el" href="structqueue__t.html">queue_t</a> *queue)</td></tr>
-<tr class="separator:ga500507f9c7fb8e6df165cf5b285c6a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadcee358a44ee8387886131d9df2d7dab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__queue.html#gadcee358a44ee8387886131d9df2d7dab">queue_count</a> (<a class="el" href="structqueue__t.html">queue_t</a> *queue)</td></tr>
-<tr class="separator:gadcee358a44ee8387886131d9df2d7dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2baf569d4eb31d6130ea81c64b1ae801"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__queue.html#ga2baf569d4eb31d6130ea81c64b1ae801">queue_init</a> (<a class="el" href="structqueue__t.html">queue_t</a> *queue, <a class="el" href="Queue_8h.html#a614658bf74c813a8a24e4aa8126becf8">queue_array_t</a> *queueArray, uint16_t queueSize, uint8_t dataSize)</td></tr>
+<tr class="separator:ga2baf569d4eb31d6130ea81c64b1ae801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4bfe45afef4a9c6ec35b3890369b5984"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__queue.html#ga4bfe45afef4a9c6ec35b3890369b5984">queue_enqueue</a> (<a class="el" href="structqueue__t.html">queue_t</a> *queue, const void *value)</td></tr>
+<tr class="separator:ga4bfe45afef4a9c6ec35b3890369b5984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4faba842ab19c6609cf0e803c68b957d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__queue.html#ga4faba842ab19c6609cf0e803c68b957d">queue_dequeue</a> (<a class="el" href="structqueue__t.html">queue_t</a> *queue, void *value)</td></tr>
+<tr class="separator:ga4faba842ab19c6609cf0e803c68b957d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6968ce549aaba4bbe25432f6495b595b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__queue.html#ga6968ce549aaba4bbe25432f6495b595b">queue_print</a> (<a class="el" href="structqueue__t.html">queue_t</a> *queue, void(*printFn)(const void *data), void *data)</td></tr>
+<tr class="separator:ga6968ce549aaba4bbe25432f6495b595b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga877d7221b95fd49b958899fcaa223793"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__queue.html#ga877d7221b95fd49b958899fcaa223793">queue_count</a> (<a class="el" href="structqueue__t.html">queue_t</a> *queue)</td></tr>
+<tr class="separator:ga877d7221b95fd49b958899fcaa223793"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gadcee358a44ee8387886131d9df2d7dab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gadcee358a44ee8387886131d9df2d7dab">&#9670;&nbsp;</a></span>queue_count()</h2>
+<a id="ga877d7221b95fd49b958899fcaa223793"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga877d7221b95fd49b958899fcaa223793">&#9670;&nbsp;</a></span>queue_count()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int queue_count </td>
+          <td class="memname">uint16_t queue_count </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structqueue__t.html">queue_t</a> *&#160;</td>
           <td class="paramname"><em>queue</em></td><td>)</td>
@@ -111,14 +111,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gad23bd224e18ed06395db83a955388964"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad23bd224e18ed06395db83a955388964">&#9670;&nbsp;</a></span>queue_dequeue()</h2>
+<a id="ga4faba842ab19c6609cf0e803c68b957d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4faba842ab19c6609cf0e803c68b957d">&#9670;&nbsp;</a></span>queue_dequeue()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int queue_dequeue </td>
+          <td class="memname">uint8_t queue_dequeue </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structqueue__t.html">queue_t</a> *&#160;</td>
           <td class="paramname"><em>queue</em>, </td>
@@ -126,7 +126,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
+          <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
@@ -141,22 +141,22 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">queue</td><td>Queue. </td></tr>
-    <tr><td class="paramname">value</td><td>Integer variable pointer to write the value of the element.</td></tr>
+    <tr><td class="paramname">value</td><td>Pointer to variable to which the dequeued data will be copied.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>-1 if the queue is empty (underflow), 0 otherwise.</dd></dl>
-<p><b>Example:</b> </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> retval;</div><div class="line"><a class="code" href="structqueue__t.html">queue_t</a> queue;</div><div class="line"><a class="code" href="group__queue.html#ga2b099c443de1a01dfdcd898c45bb1f95">queue_init</a>(&amp;queue);</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> error = <a class="code" href="group__queue.html#ga042e986b1c5354ab917d82cdf7bfcad3">queue_enqueue</a>(&amp;queue, 1);</div><div class="line"><span class="keywordtype">int</span> error = <a class="code" href="group__queue.html#gad23bd224e18ed06395db83a955388964">queue_dequeue</a>(&amp;queue, &amp;retval);</div></div><!-- fragment --> 
+<p><b>Example:</b> </p><div class="fragment"><div class="line"><span class="preprocessor">#define QUEUESIZE   sizeof(uint16_t) * 10</span></div><div class="line"></div><div class="line">uint8_t error;</div><div class="line">uint16_t data, retval;</div><div class="line"><a class="code" href="structqueue__t.html">queue_t</a> queue;</div><div class="line"><a class="code" href="Queue_8h.html#a614658bf74c813a8a24e4aa8126becf8">queue_array_t</a> queue_array[QUEUESIZE] = {0};</div><div class="line"></div><div class="line"><a class="code" href="group__queue.html#ga2baf569d4eb31d6130ea81c64b1ae801">queue_init</a>(&amp;queue, queue_array, QUEUESIZE, <span class="keyword">sizeof</span>(uint16_t));</div><div class="line"></div><div class="line">data = 1;</div><div class="line"><span class="keywordtype">int</span> error = <a class="code" href="group__queue.html#ga4bfe45afef4a9c6ec35b3890369b5984">queue_enqueue</a>(&amp;queue, (<span class="keywordtype">void</span> *) &amp;data);</div><div class="line"><span class="keywordtype">int</span> error = <a class="code" href="group__queue.html#ga4faba842ab19c6609cf0e803c68b957d">queue_dequeue</a>(&amp;queue, (<span class="keywordtype">void</span> *) &amp;retval);</div></div><!-- fragment --> 
 </div>
 </div>
-<a id="ga042e986b1c5354ab917d82cdf7bfcad3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga042e986b1c5354ab917d82cdf7bfcad3">&#9670;&nbsp;</a></span>queue_enqueue()</h2>
+<a id="ga4bfe45afef4a9c6ec35b3890369b5984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4bfe45afef4a9c6ec35b3890369b5984">&#9670;&nbsp;</a></span>queue_enqueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int queue_enqueue </td>
+          <td class="memname">uint8_t queue_enqueue </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structqueue__t.html">queue_t</a> *&#160;</td>
           <td class="paramname"><em>queue</em>, </td>
@@ -164,7 +164,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const void *&#160;</td>
           <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
@@ -179,16 +179,16 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">queue</td><td>Queue. </td></tr>
-    <tr><td class="paramname">value</td><td>Integer value to insert to the queue.</td></tr>
+    <tr><td class="paramname">value</td><td>Pointer to variable whose value is going to be inserted to the queue.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>-1 if the queue is full (overflow), 0 otherwise.</dd></dl>
-<p><b>Example:</b> </p><div class="fragment"><div class="line"><a class="code" href="structqueue__t.html">queue_t</a> queue;</div><div class="line"><a class="code" href="group__queue.html#ga2b099c443de1a01dfdcd898c45bb1f95">queue_init</a>(&amp;queue);</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> error = <a class="code" href="group__queue.html#ga042e986b1c5354ab917d82cdf7bfcad3">queue_enqueue</a>(&amp;queue, 1);</div></div><!-- fragment --> 
+<p><b>Example:</b> </p><div class="fragment"><div class="line"><span class="preprocessor">#define QUEUESIZE   sizeof(uint16_t) * 10</span></div><div class="line"></div><div class="line">uint8_t error;</div><div class="line">uint16_t data;</div><div class="line"><a class="code" href="structqueue__t.html">queue_t</a> queue;</div><div class="line"><a class="code" href="Queue_8h.html#a614658bf74c813a8a24e4aa8126becf8">queue_array_t</a> queue_array[QUEUESIZE] = {0};</div><div class="line"></div><div class="line"><a class="code" href="group__queue.html#ga2baf569d4eb31d6130ea81c64b1ae801">queue_init</a>(&amp;queue, queue_array, QUEUESIZE, <span class="keyword">sizeof</span>(uint16_t));</div><div class="line"></div><div class="line">data = 1;</div><div class="line"><span class="keywordtype">int</span> error = <a class="code" href="group__queue.html#ga4bfe45afef4a9c6ec35b3890369b5984">queue_enqueue</a>(&amp;queue, (<span class="keywordtype">void</span> *) &amp;data);</div></div><!-- fragment --> 
 </div>
 </div>
-<a id="ga2b099c443de1a01dfdcd898c45bb1f95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2b099c443de1a01dfdcd898c45bb1f95">&#9670;&nbsp;</a></span>queue_init()</h2>
+<a id="ga2baf569d4eb31d6130ea81c64b1ae801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2baf569d4eb31d6130ea81c64b1ae801">&#9670;&nbsp;</a></span>queue_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,8 +197,30 @@ Functions</h2></td></tr>
           <td class="memname">void queue_init </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structqueue__t.html">queue_t</a> *&#160;</td>
-          <td class="paramname"><em>queue</em></td><td>)</td>
+          <td class="paramname"><em>queue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="Queue_8h.html#a614658bf74c813a8a24e4aa8126becf8">queue_array_t</a> *&#160;</td>
+          <td class="paramname"><em>queueArray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>queueSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>dataSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -206,16 +228,19 @@ Functions</h2></td></tr>
 <p>This function is used to initialize a queue structure.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">queue</td><td>Queue to be initialized.</td></tr>
+    <tr><td class="paramname">queue</td><td>Queue to be initialized. </td></tr>
+    <tr><td class="paramname">queueArray</td><td>Pointer to the array used to store the data. </td></tr>
+    <tr><td class="paramname">queueSize</td><td>Size of the queue array. </td></tr>
+    <tr><td class="paramname">dataSize</td><td>Size of every data element.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None.</dd></dl>
-<p><b>Example:</b> </p><div class="fragment"><div class="line"><a class="code" href="structqueue__t.html">queue_t</a> queue;</div><div class="line"><a class="code" href="group__queue.html#ga2b099c443de1a01dfdcd898c45bb1f95">queue_init</a>(&amp;queue);</div></div><!-- fragment --> 
+<p><b>Example:</b> </p><div class="fragment"><div class="line"><span class="preprocessor">#define QUEUESIZE   sizeof(uint16_t) * 10</span></div><div class="line"></div><div class="line"><a class="code" href="structqueue__t.html">queue_t</a> queue;</div><div class="line"><a class="code" href="Queue_8h.html#a614658bf74c813a8a24e4aa8126becf8">queue_array_t</a> queue_array[QUEUESIZE] = {0};</div><div class="line"></div><div class="line"><a class="code" href="group__queue.html#ga2baf569d4eb31d6130ea81c64b1ae801">queue_init</a>(&amp;queue, queue_array, QUEUESIZE, <span class="keyword">sizeof</span>(uint16_t));</div></div><!-- fragment --> 
 </div>
 </div>
-<a id="ga500507f9c7fb8e6df165cf5b285c6a38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga500507f9c7fb8e6df165cf5b285c6a38">&#9670;&nbsp;</a></span>queue_print()</h2>
+<a id="ga6968ce549aaba4bbe25432f6495b595b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6968ce549aaba4bbe25432f6495b595b">&#9670;&nbsp;</a></span>queue_print()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -224,8 +249,24 @@ Functions</h2></td></tr>
           <td class="memname">void queue_print </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structqueue__t.html">queue_t</a> *&#160;</td>
-          <td class="paramname"><em>queue</em></td><td>)</td>
+          <td class="paramname"><em>queue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">void(*)(const void *data)&#160;</td>
+          <td class="paramname"><em>printFn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -233,12 +274,14 @@ Functions</h2></td></tr>
 <p>This function is used to print the values of the queue.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">queue</td><td>Queue.</td></tr>
+    <tr><td class="paramname">queue</td><td>Queue. </td></tr>
+    <tr><td class="paramname">printFn</td><td>Pointer to the function used to print the elements. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to a variable with the correct size that will store every element of the queue and is passed to printFn.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>None.</dd></dl>
+<p><b>Example:</b> </p><div class="fragment"><div class="line"><span class="preprocessor">#define QUEUESIZE   sizeof(uint16_t) * 3</span></div><div class="line"></div><div class="line"><span class="keywordtype">void</span> </div><div class="line">printUint16(<span class="keyword">const</span> <span class="keywordtype">void</span> *data)</div><div class="line">{</div><div class="line">    printf(<span class="stringliteral">&quot;%d :: &quot;</span>, *((<span class="keyword">const</span> uint16_t *) data));</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">int</span></div><div class="line">main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div><div class="line">{</div><div class="line">    uint8_t error, i;</div><div class="line">    uint16_t print_data;</div><div class="line">    <span class="keyword">const</span> uint16_t data[3] = {0, 1, 2};</div><div class="line">    <a class="code" href="structqueue__t.html">queue_t</a> queue;</div><div class="line">    <a class="code" href="Queue_8h.html#a614658bf74c813a8a24e4aa8126becf8">queue_array_t</a> queue_array[QUEUESIZE] = {0};</div><div class="line"></div><div class="line">    <a class="code" href="group__queue.html#ga2baf569d4eb31d6130ea81c64b1ae801">queue_init</a>(&amp;queue, queue_array, QUEUESIZE, <span class="keyword">sizeof</span>(uint16_t));</div><div class="line"></div><div class="line">    <span class="keywordflow">for</span> (i = 0; i &lt; 3; i++)</div><div class="line">    {</div><div class="line">        <span class="keywordtype">int</span> error = <a class="code" href="group__queue.html#ga4bfe45afef4a9c6ec35b3890369b5984">queue_enqueue</a>(&amp;queue, (<span class="keywordtype">void</span> *) &amp;data[i]);</div><div class="line">    }</div><div class="line"></div><div class="line">    <a class="code" href="group__queue.html#ga6968ce549aaba4bbe25432f6495b595b">queue_print</a>(queue, printUint16, (<span class="keywordtype">void</span> *) &amp;print_data);</div><div class="line">}</div></div><!-- fragment --> 
 </div>
 </div>
 </div><!-- contents -->

@@ -110,8 +110,10 @@ static int is_full(queue_t* queue);
 static int
 is_empty(queue_t* queue)
 {
-    if (queue->count == 0)
-            return 1;  
+    if (queue->numElements == 0)
+    {
+        return 1;  
+    }
 
     return 0;
 }
@@ -134,8 +136,10 @@ is_empty(queue_t* queue)
 static int
 is_full(queue_t* queue)
 {
-    if(queue->count == queue->size)
-            return 1;  
+    if((queue->numElements * queue->dataSize) == queue->queueSize)
+    {
+        return 1;  
+    }
 
     return 0;
 }
@@ -148,27 +152,37 @@ is_full(queue_t* queue)
  * This function is used to initialize a queue structure.
  * 
  * @param queue Queue to be initialized.
+ * @param queueArray Pointer to the array used to store the data.
+ * @param queueSize Size of the queue array.
+ * @param dataSize Size of every data element.
  * 
  * @return None.
  * 
  * \b Example:
  * @code
- *      int queue_array[10] = {0};
+ *      #define QUEUESIZE   sizeof(uint16_t) * 10
+ *
  *      queue_t queue;
- *      queue_init(&queue, queue_array, 10);
+ *      queue_array_t queue_array[QUEUESIZE] = {0};
+ *
+ *      queue_init(&queue, queue_array, QUEUESIZE, sizeof(uint16_t));
  * @endcode
  *
  */
 /*****************************************************************************/
 void
-queue_init(queue_t* queue, int* elementsArray, int size)
+queue_init(queue_t* queue,
+           queue_array_t* queueArray,
+           uint16_t queueSize,
+           uint8_t dataSize)
 {
     // Initialize the structure
     queue->index = 0;
     queue->outdex = 0;
-    queue->count = 0;
-    queue->elements = elementsArray;
-    queue->size = size;
+    queue->numElements = 0;
+    queue->queueArray = queueArray;
+    queue->queueSize = queueSize;
+    queue->dataSize = dataSize;
     
     // Initialize R/W semaphore
     pthread_mutex_init(&(queue->lock), NULL);
@@ -182,35 +196,46 @@ queue_init(queue_t* queue, int* elementsArray, int size)
  * This function is used to put a element in the queue.
  * 
  * @param queue Queue.
- * @param value Integer value to insert to the queue.
+ * @param value Pointer to variable whose value is going to be inserted to the 
+ *              queue.
  * 
  * @return -1 if the queue is full (overflow), 0 otherwise.
  * 
  * \b Example:
  * @code
- *      int queue_array[10] = {0};
- *      queue_t queue;
- *      queue_init(&queue, queue_array, 10);
+ *      #define QUEUESIZE   sizeof(uint16_t) * 10
  * 
- *      int error = queue_enqueue(&queue, 1);
+ *      uint8_t error;
+ *      uint16_t data;
+ *      queue_t queue;
+ *      queue_array_t queue_array[QUEUESIZE] = {0};
+ *
+ *      queue_init(&queue, queue_array, QUEUESIZE, sizeof(uint16_t));
+ * 
+ *      data = 1;
+ *      int error = queue_enqueue(&queue, (void *) &data);
  * @endcode
  *
  */
 /*****************************************************************************/
-int
-queue_enqueue(queue_t* queue, int value)
+uint8_t
+queue_enqueue(queue_t* queue, const void* value)
 {
-    int ret = -1;
+    uint8_t ret = 1;
     
     pthread_mutex_lock(&(queue->lock));
 
     if (!is_full(queue))
-      {
-          queue->elements[queue->index] = value;
-          queue->index = (queue->index+1) % queue->size;
-          queue->count++;
-          ret = 0;
-      }
+    {
+        for (uint8_t j = 0; j < queue->dataSize; j++)
+        {
+            uint8_t offset = queue->index + j;
+            *((uint8_t *) (queue->queueArray + offset)) = *((uint8_t *) (value + j));
+        }
+        queue->index = (queue->index + queue->dataSize) % queue->queueSize;
+        queue->numElements++;
+        ret = 0;
+    }
 
     pthread_mutex_unlock(&(queue->lock));
 
@@ -225,37 +250,46 @@ queue_enqueue(queue_t* queue, int value)
  * This function is used to get a element from the queue.
  * 
  * @param queue Queue.
- * @param value Integer variable pointer to write the value of the element.
+ * @param value Pointer to variable to which the dequeued data will be copied.
  * 
  * @return -1 if the queue is empty (underflow), 0 otherwise.
  * 
  * \b Example:
  * @code
- *      int retval;
- *      int queue_array[10] = {0};
+ *      #define QUEUESIZE   sizeof(uint16_t) * 10
+ *
+ *      uint8_t error;
+ *      uint16_t data, retval;
  *      queue_t queue;
- *      queue_init(&queue, queue_array, 10);
+ *      queue_array_t queue_array[QUEUESIZE] = {0};
+ *
+ *      queue_init(&queue, queue_array, QUEUESIZE, sizeof(uint16_t));
  * 
- *      int error = queue_enqueue(&queue, 1);
- *      int error = queue_dequeue(&queue, &retval);
+ *      data = 1;
+ *      int error = queue_enqueue(&queue, (void *) &data);
+ *      int error = queue_dequeue(&queue, (void *) &retval);
  * @endcode
  *
  */
 /*****************************************************************************/
-int
-queue_dequeue(queue_t* queue, int* value)
+uint8_t
+queue_dequeue(queue_t* queue, void* value)
 {
-    int ret = -1;
+    int ret = 1;
 
     pthread_mutex_lock(&(queue->lock));
 
     if (!is_empty(queue))
-      {
-          *value = queue->elements[queue->outdex];
-          queue->outdex = (queue->outdex+1) % queue->size;
-          queue->count--;
-          ret = 0;
-      }
+    {
+        for (uint8_t j = 0; j < queue->dataSize; j++)
+        {
+            uint8_t offset = queue->outdex + j;
+            *((uint8_t *) (value + j)) = *((uint8_t *) (queue->queueArray + offset));
+        }
+        queue->outdex = (queue->outdex + queue->dataSize) % queue->queueSize;
+        queue->numElements--;
+        ret = 0;
+    }
 
     pthread_mutex_unlock(&(queue->lock));
 
@@ -270,26 +304,64 @@ queue_dequeue(queue_t* queue, int* value)
  * This function is used to print the values of the queue.
  * 
  * @param queue Queue.
+ * @param printFn Pointer to the function used to print the elements.
+ * @param data Pointer to a variable with the correct size that will store every
+ *             element of the queue and is passed to printFn.
  * 
  * @return None.
  *
+ * \b Example:
+ * @code
+ *      #define QUEUESIZE   sizeof(uint16_t) * 3
+ *      
+ *      void 
+ *      printUint16(const void *data)
+ *      {
+ *          printf("%d :: ", *((const uint16_t *) data));
+ *      }
+ * 
+ *      int
+ *      main(int argc, char** argv)
+ *      {
+ *          uint8_t error, i;
+ *          uint16_t print_data;
+ *          const uint16_t data[3] = {0, 1, 2};
+ *          queue_t queue;
+ *          queue_array_t queue_array[QUEUESIZE] = {0};
+ *
+ *          queue_init(&queue, queue_array, QUEUESIZE, sizeof(uint16_t));
+ * 
+ *          for (i = 0; i < 3; i++)
+ *          {
+ *              int error = queue_enqueue(&queue, (void *) &data[i]);
+ *          }
+ * 
+ *          queue_print(queue, printUint16, (void *) &print_data);
+ *      }
+ * @endcode
+ * 
  */
 /*****************************************************************************/
 void 
-queue_print(queue_t* queue)
+queue_print(queue_t* queue, void (*printFn)(const void* data), void* data)
 {
-    int ix = 0;
-    int jx = queue->outdex;
+    uint16_t i = 0;
+    uint16_t k = 0;
 
     pthread_mutex_lock(&(queue->lock));
 
-    for (ix = 0; ix < queue->count; ix++)
-      {
-          printf("%d :: ", queue->elements[jx]);
-          jx = (jx+1) % queue->size;
-      }
+    uint16_t j = queue->outdex;
 
-    printf("\n");
+    for (i = 0; i < queue->numElements; i++)
+    {
+        for (k = 0; k < queue->dataSize; k++)
+        {
+            uint8_t offset = j + k;
+            *((uint8_t *) (data + k)) = *((uint8_t *) (queue->queueArray + offset));
+        }
+        printFn(data);
+        j = (j + queue->dataSize) % queue->queueSize;
+    }
 
     pthread_mutex_unlock(&(queue->lock));
 }
@@ -307,14 +379,14 @@ queue_print(queue_t* queue)
  *
  */
 /*****************************************************************************/
-int
+uint16_t
 queue_count(queue_t* queue)
 {
     int count = -1;
 
     pthread_mutex_lock(&(queue->lock));
 
-    count = queue->count;
+    count = queue->numElements;
 
     pthread_mutex_unlock(&(queue->lock));
 

@@ -21,6 +21,7 @@
 * Includes
 ******************************************************************************/
 #include <stdio.h>
+#include <stdint.h>
 #include <pthread.h>
 
 /******************************************************************************
@@ -41,18 +42,22 @@
 /******************************************************************************
 * Typedefs
 ******************************************************************************/
+/*! @brief Queue array typedef */
+typedef uint8_t queue_array_t;
+
 /*! @brief Queue typedef */
 typedef struct queue_t queue_t;
 
 /*! @brief Queue structure */
 struct queue_t
 {
-    int index;              /**< Index used for input elements */
-    int outdex;             /**< Index used for output elements */
-    int count;              /**< Number of elements in the queue */
-    int* elements;          /**< Queue array pointer to user array */
-    int size;               /**< Size of queue array given by the user */
-    pthread_mutex_t lock;   /**< Mutex used to lock the queue */
+    uint16_t index;             /**< Index used for input elements */
+    uint16_t outdex;            /**< Index used for output elements */
+    uint16_t numElements;       /**< Number of elements in the queue */
+    queue_array_t* queueArray;  /**< Queue array pointer to user array */
+    uint16_t queueSize;         /**< Size of queue array */
+    uint8_t dataSize;           /**< Size of every data element */
+    pthread_mutex_t lock;       /**< Mutex used to lock the queue */
 };
 
 /******************************************************************************
@@ -63,10 +68,13 @@ struct queue_t
 /******************************************************************************
 * Function Prototypes
 ******************************************************************************/
-void queue_init(queue_t* queue,  int* elementsArray, int size);
-int queue_enqueue(queue_t* queue, int value);
-int queue_dequeue(queue_t* queue, int* value);
-void queue_print(queue_t* queue);
-int queue_count(queue_t* queue);
+void queue_init(queue_t* queue,
+                queue_array_t* queueArray, 
+                uint16_t queueSize, 
+                uint8_t dataSize);
+uint8_t queue_enqueue(queue_t* queue, const void* value);
+uint8_t queue_dequeue(queue_t* queue, void* value);
+void queue_print(queue_t* queue, void (*printFn)(const void* data), void* data);
+uint16_t queue_count(queue_t* queue);
 
 #endif /* QUEUE_H */

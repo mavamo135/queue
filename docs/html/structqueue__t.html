@@ -76,58 +76,47 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a73518c2e3ee0f0a6b7d11e38d5e655f5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structqueue__t.html#a73518c2e3ee0f0a6b7d11e38d5e655f5">index</a></td></tr>
-<tr class="separator:a73518c2e3ee0f0a6b7d11e38d5e655f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7074b23c903b7883ed94a78f4319b73"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structqueue__t.html#ab7074b23c903b7883ed94a78f4319b73">outdex</a></td></tr>
-<tr class="separator:ab7074b23c903b7883ed94a78f4319b73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a058245e68052484f4ef9e51ff1553c31"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structqueue__t.html#a058245e68052484f4ef9e51ff1553c31">count</a></td></tr>
-<tr class="separator:a058245e68052484f4ef9e51ff1553c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa13a5d72a639898fd4ebc3709ecebe04"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structqueue__t.html#aa13a5d72a639898fd4ebc3709ecebe04">elements</a> [<a class="el" href="Queue_8h.html#a2a37b4217917105aac7557862ccc19c3">MAXSIZE</a>]</td></tr>
-<tr class="separator:aa13a5d72a639898fd4ebc3709ecebe04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79b4709c18c94ebd80839a0144dbbf47"><td class="memItemLeft" align="right" valign="top">sem_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structqueue__t.html#a79b4709c18c94ebd80839a0144dbbf47">lock</a></td></tr>
-<tr class="separator:a79b4709c18c94ebd80839a0144dbbf47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5117127f5dc2edd6b27087e3a668df4"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structqueue__t.html#aa5117127f5dc2edd6b27087e3a668df4">index</a></td></tr>
+<tr class="separator:aa5117127f5dc2edd6b27087e3a668df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a160e2ed755b0aef747017b709701229b"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structqueue__t.html#a160e2ed755b0aef747017b709701229b">outdex</a></td></tr>
+<tr class="separator:a160e2ed755b0aef747017b709701229b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0495a085d1e12035199884ba397fee22"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structqueue__t.html#a0495a085d1e12035199884ba397fee22">numElements</a></td></tr>
+<tr class="separator:a0495a085d1e12035199884ba397fee22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac780a56f0b8777304124379c6a8774f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Queue_8h.html#a614658bf74c813a8a24e4aa8126becf8">queue_array_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structqueue__t.html#ac780a56f0b8777304124379c6a8774f2">queueArray</a></td></tr>
+<tr class="separator:ac780a56f0b8777304124379c6a8774f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af36355f37c30ec27d7d697f64e836a7e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structqueue__t.html#af36355f37c30ec27d7d697f64e836a7e">queueSize</a></td></tr>
+<tr class="separator:af36355f37c30ec27d7d697f64e836a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c8bd2d8a65462ab475feed4a3d184c8"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structqueue__t.html#a0c8bd2d8a65462ab475feed4a3d184c8">dataSize</a></td></tr>
+<tr class="separator:a0c8bd2d8a65462ab475feed4a3d184c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad874961130648ddd199bb6373f274db9"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structqueue__t.html#ad874961130648ddd199bb6373f274db9">lock</a></td></tr>
+<tr class="separator:ad874961130648ddd199bb6373f274db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Queue structure. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="a058245e68052484f4ef9e51ff1553c31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a058245e68052484f4ef9e51ff1553c31">&#9670;&nbsp;</a></span>count</h2>
+<a id="a0c8bd2d8a65462ab475feed4a3d184c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c8bd2d8a65462ab475feed4a3d184c8">&#9670;&nbsp;</a></span>dataSize</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int queue_t::count</td>
+          <td class="memname">uint8_t queue_t::dataSize</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Number of elements in the queue </p>
+<p>Size of every data element </p>
 
 </div>
 </div>
-<a id="aa13a5d72a639898fd4ebc3709ecebe04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa13a5d72a639898fd4ebc3709ecebe04">&#9670;&nbsp;</a></span>elements</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int queue_t::elements[<a class="el" href="Queue_8h.html#a2a37b4217917105aac7557862ccc19c3">MAXSIZE</a>]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Queue array </p>
-
-</div>
-</div>
-<a id="a73518c2e3ee0f0a6b7d11e38d5e655f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73518c2e3ee0f0a6b7d11e38d5e655f5">&#9670;&nbsp;</a></span>index</h2>
+<a id="aa5117127f5dc2edd6b27087e3a668df4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5117127f5dc2edd6b27087e3a668df4">&#9670;&nbsp;</a></span>index</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int queue_t::index</td>
+          <td class="memname">uint16_t queue_t::index</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -135,33 +124,78 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a79b4709c18c94ebd80839a0144dbbf47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79b4709c18c94ebd80839a0144dbbf47">&#9670;&nbsp;</a></span>lock</h2>
+<a id="ad874961130648ddd199bb6373f274db9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad874961130648ddd199bb6373f274db9">&#9670;&nbsp;</a></span>lock</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">sem_t queue_t::lock</td>
+          <td class="memname">pthread_mutex_t queue_t::lock</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Semaphore used to lock the queue </p>
+<p>Mutex used to lock the queue </p>
 
 </div>
 </div>
-<a id="ab7074b23c903b7883ed94a78f4319b73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7074b23c903b7883ed94a78f4319b73">&#9670;&nbsp;</a></span>outdex</h2>
+<a id="a0495a085d1e12035199884ba397fee22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0495a085d1e12035199884ba397fee22">&#9670;&nbsp;</a></span>numElements</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int queue_t::outdex</td>
+          <td class="memname">uint16_t queue_t::numElements</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of elements in the queue </p>
+
+</div>
+</div>
+<a id="a160e2ed755b0aef747017b709701229b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a160e2ed755b0aef747017b709701229b">&#9670;&nbsp;</a></span>outdex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t queue_t::outdex</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Index used for output elements </p>
+
+</div>
+</div>
+<a id="ac780a56f0b8777304124379c6a8774f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac780a56f0b8777304124379c6a8774f2">&#9670;&nbsp;</a></span>queueArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Queue_8h.html#a614658bf74c813a8a24e4aa8126becf8">queue_array_t</a>* queue_t::queueArray</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queue array pointer to user array </p>
+
+</div>
+</div>
+<a id="af36355f37c30ec27d7d697f64e836a7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af36355f37c30ec27d7d697f64e836a7e">&#9670;&nbsp;</a></span>queueSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t queue_t::queueSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Size of queue array </p>
 
 </div>
 </div>

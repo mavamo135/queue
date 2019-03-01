@@ -32,6 +32,9 @@
  *  - added Dequeue method
  *  - added Print method
  *
+ * @subsection Release2 Release 2
+ *  - added Generix data types
+ *
  * <br><A HREF="#Contents">Table of Contents</A><br>
  * <hr>
  *
@@ -83,8 +86,10 @@
  * 
  * For function prototype parameters,
  * - The sub-system shall not be used.
- * - The first character of each word shall not be capitalized.
+ * - The first character of the first word shall not be capitalized.
  * - There should be no under-scores in the name.
+ * - If the name contains more than one word, each word after the first shall
+ *   have its first character capitalized.
  * 
  * For local variables (to a function),
  * - The sub-system shall not be used.
@@ -119,8 +124,7 @@
  * - Indentation shall be 4 spaces (not tabs).
  * - Opening braces shall be placed on separate lines.
  * - Closing braces shall be placed on separate lines.
- * - If, for, switch, and while statements shall always use braces. Shall not 
- *   use braces if there is only one instruction after it.
+ * - If, for, switch, and while statements shall always use braces.
  * - A comment block shall be placed before every function definition describing
  *   what the function does, any paramaters passed to it, any return value, and
  *   anything else that would be relevant or useful to someone that has to 
@@ -133,26 +137,35 @@
  *      {
  *          statement1;
  *          statement2;
- *      } 
+ *      }
  *      else
- *      { 
+ *      {
  *          statement3;
- *          statement4; 
- *      } 
+ *          statement4;
+ *      }
  *
- *      if (condition) 
- *          statement; 
+ *      if (condition)
+ *      {
+ *          statement;
+ *      }
  *      else
- *          statement2; 
- *      
+ *      {
+ *          statement2;
+ *      }
+ *
  *      // This is NOT.
  *      if (condition) {
  *          statement1;
  *          statement2;
  *      } else {
  *          statement3;
- *          statement4; 
+ *          statement4;
  *      }
+ *
+ *      if (condition)
+ *          statement;
+ *      else
+ *          statement2;
  *
  * @endcode		
  * 
@@ -183,8 +196,7 @@
  * 
  * @section Todo ToDo
  *
- * - Pass an array to the init function and use that array so the user can
- *   define different queues with different size.
+ * - None.
  *
  * <br><A HREF="#Contents">Table of Contents</A><br> 
  * 
