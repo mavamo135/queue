@@ -99,6 +99,11 @@ Release 1</h2>
 <li>added Dequeue method</li>
 <li>added Print method</li>
 </ul>
+<h2><a class="anchor" id="Release2"></a>
+Release 2</h2>
+<ul>
+<li>added Generic data types</li>
+</ul>
 <p><br />
 <a href="#Contents">Table of Contents</a><br />
  </p><hr/>
@@ -156,8 +161,9 @@ Code Naming Convention</h2>
 </ul>
 <p>For function prototype parameters,</p><ul>
 <li>The sub-system shall not be used.</li>
-<li>The first character of each word shall not be capitalized.</li>
+<li>The first character of the first word shall not be capitalized.</li>
 <li>There should be no under-scores in the name.</li>
+<li>If the name contains more than one word, each word after the first shall have its first character capitalized.</li>
 </ul>
 <p>For local variables (to a function),</p><ul>
 <li>The sub-system shall not be used.</li>
@@ -181,11 +187,11 @@ Code Formatting/Style</h2>
 <li>Indentation shall be 4 spaces (not tabs).</li>
 <li>Opening braces shall be placed on separate lines.</li>
 <li>Closing braces shall be placed on separate lines.</li>
-<li>If, for, switch, and while statements shall always use braces. Shall not use braces if there is only one instruction after it.</li>
+<li>If, for, switch, and while statements shall always use braces.</li>
 <li>A comment block shall be placed before every function definition describing what the function does, any paramaters passed to it, any return value, and anything else that would be relevant or useful to someone that has to maintain it.</li>
 </ul>
 <p>For example, <br />
- </p><div class="fragment"><div class="line"><span class="comment">// This is correct.</span></div><div class="line"><span class="keywordflow">if</span> (condition)</div><div class="line">{</div><div class="line">    statement1;</div><div class="line">    statement2;</div><div class="line">} </div><div class="line"><span class="keywordflow">else</span></div><div class="line">{ </div><div class="line">    statement3;</div><div class="line">    statement4; </div><div class="line">} </div><div class="line"></div><div class="line"><span class="keywordflow">if</span> (condition) </div><div class="line">    statement; </div><div class="line"><span class="keywordflow">else</span></div><div class="line">    statement2; </div><div class="line"></div><div class="line"><span class="comment">// This is NOT.</span></div><div class="line"><span class="keywordflow">if</span> (condition) {</div><div class="line">    statement1;</div><div class="line">    statement2;</div><div class="line">} <span class="keywordflow">else</span> {</div><div class="line">    statement3;</div><div class="line">    statement4; </div><div class="line">}</div></div><!-- fragment --><p><br />
+ </p><div class="fragment"><div class="line"><span class="comment">// This is correct.</span></div><div class="line"><span class="keywordflow">if</span> (condition)</div><div class="line">{</div><div class="line">    statement1;</div><div class="line">    statement2;</div><div class="line">}</div><div class="line"><span class="keywordflow">else</span></div><div class="line">{</div><div class="line">    statement3;</div><div class="line">    statement4;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordflow">if</span> (condition)</div><div class="line">{</div><div class="line">    statement;</div><div class="line">}</div><div class="line"><span class="keywordflow">else</span></div><div class="line">{</div><div class="line">    statement2;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// This is NOT.</span></div><div class="line"><span class="keywordflow">if</span> (condition) {</div><div class="line">    statement1;</div><div class="line">    statement2;</div><div class="line">} <span class="keywordflow">else</span> {</div><div class="line">    statement3;</div><div class="line">    statement4;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordflow">if</span> (condition)</div><div class="line">    statement;</div><div class="line"><span class="keywordflow">else</span></div><div class="line">    statement2;</div></div><!-- fragment --><p><br />
 <a href="#Contents">Table of Contents</a><br />
  </p><hr/>
 <p><a class="anchor" id="Documentation"></a></p>
@@ -208,7 +214,7 @@ Testing</h1>
 <h1><a class="anchor" id="Todo"></a>
 ToDo</h1>
 <ul>
-<li>Pass an array to the init function and use that array so the user can define different queues with different size.</li>
+<li>None.</li>
 </ul>
 <p><br />
 <a href="#Contents">Table of Contents</a><br />

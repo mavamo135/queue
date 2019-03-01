@@ -28,31 +28,31 @@
  *  then gets elements from the queue.
  * 
  *  @code
- *      int ret;
- *      int error;
- *      int queue_array[10] = {0};
+ * 
+ *      uint8_t error, i;
+ *      uint16_t ret;
+ *      const uint16_t data[3] = {0, 1, 2};
+ *      queue_array_t queue_array[QUEUESIZE] = {0};
  *      queue_t queue;
- * 
- *      queue_init(&queue, queue_array, 10);
- * 
- *      error = queue_enqueue(&queue, 1);
- *      error = queue_enqueue(&queue, 2);
- *      error = queue_enqueue(&queue, 3);
- * 
- *      queue_print(queue);
- * 
- *      error = queue_dequeue(&queue, &ret);
- *      printf("Value 1: %d", ret);
- *      error = queue_dequeue(&queue, &ret);
- *      printf("Value 2: %d", ret);
- *      error = queue_dequeue(&queue, &ret);
- *      printf("Value 3: %d", ret);
+ *
+ *      queue_init(&queue, queue_array, QUEUESIZE, sizeof(uint16_t));
+ *
+ *      for (i = 0; i < 3; i++)
+ *      {
+ *          error = queue_enqueue(&queue, (void *) &data[i]);
+ *      }
+ *
+ *      for (i = 0; i < 3; i++)
+ *      {
+ *          error = queue_dequeue(&queue, (void *) &ret));
+ *          printf("Value %d: %d", i, ret);
+ *      }
  *  @endcode
  */
 /******************************************************************************
 * Includes
 ******************************************************************************/
-#include "Queue.h"          /* For TODO: WHY ME? */
+#include "Queue.h"          /* Queue and queue array typedefs */
 
 /******************************************************************************
 * Module Preprocessor Constants
